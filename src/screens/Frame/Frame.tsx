@@ -51,6 +51,7 @@ export const Frame = (): JSX.Element => {
   const { showToast } = useToast();
   const testimonialScrollRef = useRef<HTMLDivElement>(null);
   const desktopTestimonialScrollRef = useRef<HTMLDivElement>(null);
+  const [showTshirtGallery, setShowTshirtGallery] = React.useState(false);
 
   const scrollTestimonials = (direction: 'left' | 'right') => {
     if (testimonialScrollRef.current) {
@@ -73,9 +74,13 @@ export const Frame = (): JSX.Element => {
     }
   };
 
-  const handleDonationClick = (pixCode: string) => {
+  const handleDonationClick = (pixCode: string, amount: string) => {
     navigator.clipboard.writeText(pixCode);
     showToast("Código PIX copiado. Acesse seu banco para efetivar o pagamento.");
+
+    if (amount === "100" || amount === "200") {
+      setShowTshirtGallery(true);
+    }
   };
 
   const handleCustomAmountClick = () => {
@@ -546,10 +551,15 @@ export const Frame = (): JSX.Element => {
 
           <div className="grid grid-cols-2 gap-6 mb-4 md:hidden">
             {donationTiers.map((tier, index) => (
-              <div key={index}>
+              <div key={index} className="relative">
+                {(tier.amount === "100" || tier.amount === "200") && (
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-10 bg-[#8e5013] text-white px-3 py-1 rounded-full text-xs [font-family:'Raleway',Helvetica] font-medium whitespace-nowrap shadow-lg">
+                    🎁 {tier.amount === "100" ? "1 camiseta grátis" : "2 camisetas grátis"}
+                  </div>
+                )}
                 <Card
                   className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors cursor-pointer shadow-lg"
-                  onClick={() => handleDonationClick(tier.pixCode)}
+                  onClick={() => handleDonationClick(tier.pixCode, tier.amount)}
                 >
                   <CardContent className="p-4 text-center">
                     <img
@@ -575,10 +585,15 @@ export const Frame = (): JSX.Element => {
 
           <div className="hidden md:grid md:grid-cols-5 md:gap-8 max-w-7xl mx-auto mb-8">
             {donationTiers.map((tier, index) => (
-              <div key={index}>
+              <div key={index} className="relative">
+                {(tier.amount === "100" || tier.amount === "200") && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 bg-[#8e5013] text-white px-4 py-2 rounded-full text-sm [font-family:'Raleway',Helvetica] font-medium whitespace-nowrap shadow-lg">
+                    🎁 {tier.amount === "100" ? "1 camiseta grátis" : "2 camisetas grátis"}
+                  </div>
+                )}
                 <Card
                   className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors cursor-pointer shadow-lg"
-                  onClick={() => handleDonationClick(tier.pixCode)}
+                  onClick={() => handleDonationClick(tier.pixCode, tier.amount)}
                 >
                   <CardContent className="p-6 text-center">
                     <img
@@ -655,6 +670,60 @@ export const Frame = (): JSX.Element => {
               <span className="text-3xl">💛</span>
             </div>
           </div>
+
+          {showTshirtGallery && (
+            <div className="max-w-6xl mx-auto mt-12 px-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className="text-center mb-6">
+                <h3 className="[font-family:'Raleway',Helvetica] font-medium text-[#6d4c30] text-2xl md:text-4xl mb-2">
+                  🎁 Suas camisetas te esperam!
+                </h3>
+                <p className="[font-family:'Raleway',Helvetica] text-[#8e5013] text-sm md:text-lg">
+                  Clique nas imagens para ver mais modelos disponíveis
+                </p>
+              </div>
+              <div className="grid grid-cols-3 gap-4 md:gap-6">
+                <a
+                  href="https://www.flickr.com/photos/201201433@N06/with/54958657950"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                >
+                  <img
+                    src="https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/yCIFej5074147.webp"
+                    alt="Camiseta DESPERTA - Modelo 1"
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                </a>
+                <a
+                  href="https://www.flickr.com/photos/201201433@N06/with/54958657950"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                >
+                  <img
+                    src="https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/nwbHWk5074147.webp"
+                    alt="Camiseta DESPERTA - Modelo 2"
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                </a>
+                <a
+                  href="https://www.flickr.com/photos/201201433@N06/with/54958657950"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                >
+                  <img
+                    src="https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/KMNNtb5074147.webp"
+                    alt="Camiseta DESPERTA - Modelo 3"
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
