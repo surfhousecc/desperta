@@ -52,6 +52,21 @@ export const Frame = (): JSX.Element => {
   const testimonialScrollRef = useRef<HTMLDivElement>(null);
   const desktopTestimonialScrollRef = useRef<HTMLDivElement>(null);
   const [showTshirtGallery, setShowTshirtGallery] = React.useState(false);
+  const [currentTshirtSlide, setCurrentTshirtSlide] = React.useState(0);
+
+  const tshirtImages = [
+    "https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/yCIFej5074147.webp",
+    "https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/nwbHWk5074147.webp",
+    "https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/KMNNtb5074147.webp"
+  ];
+
+  const scrollTshirts = (direction: 'left' | 'right') => {
+    if (direction === 'left') {
+      setCurrentTshirtSlide(prev => prev === 0 ? tshirtImages.length - 1 : prev - 1);
+    } else {
+      setCurrentTshirtSlide(prev => prev === tshirtImages.length - 1 ? 0 : prev + 1);
+    }
+  };
 
   const scrollTestimonials = (direction: 'left' | 'right') => {
     if (testimonialScrollRef.current) {
@@ -543,6 +558,34 @@ export const Frame = (): JSX.Element => {
             Semeie no Desperta
           </h2>
 
+          <div className="max-w-4xl mx-auto mb-8 px-4">
+            <div className="bg-[#f5ddb8] rounded-lg p-4 md:p-6 shadow-lg">
+              <div className="flex justify-between items-center mb-3">
+                <div className="text-left">
+                  <p className="[font-family:'Raleway',Helvetica] text-[#513b2d] text-xs md:text-sm mb-1">Arrecadado</p>
+                  <p className="[font-family:'Raleway',Helvetica] font-bold text-[#6d4c30] text-lg md:text-2xl">R$ 21.488,57</p>
+                </div>
+                <div className="text-right">
+                  <p className="[font-family:'Raleway',Helvetica] text-[#513b2d] text-xs md:text-sm mb-1">Meta até 31/12</p>
+                  <p className="[font-family:'Raleway',Helvetica] font-bold text-[#6d4c30] text-lg md:text-2xl">R$ 42.000,00</p>
+                </div>
+              </div>
+              <div className="relative w-full h-4 bg-white rounded-full overflow-hidden shadow-inner">
+                <div
+                  className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#8e5013] to-[#6d4c30] rounded-full transition-all duration-1000 ease-out"
+                  style={{ width: '51.16%' }}
+                >
+                  <div className="absolute inset-0 bg-white opacity-20 animate-pulse"></div>
+                </div>
+              </div>
+              <div className="mt-2 text-center">
+                <p className="[font-family:'Raleway',Helvetica] text-[#8e5013] text-xs md:text-sm font-medium">
+                  51% alcançado - Faltam R$ 20.511,43 para a meta
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div className="max-w-3xl mx-auto mb-8 md:mb-12 space-y-4 [font-family:'Raleway',Helvetica] text-[#513b2d] text-sm md:text-2xl text-left px-4">
             <p>O Desperta acontece de forma gratuita e segue crescendo graças à contribuição voluntária de quem faz parte desse movimento.</p>
             <p>Sua contribuição ajuda a proporcionar a melhor experiência possível a todos que participam.</p>
@@ -681,46 +724,71 @@ export const Frame = (): JSX.Element => {
                   Clique nas imagens para ver mais modelos disponíveis
                 </p>
               </div>
-              <div className="grid grid-cols-3 gap-4 md:gap-6">
-                <a
-                  href="https://www.flickr.com/photos/201201433@N06/with/54958657950"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+
+              <div className="md:hidden relative">
+                <div className="relative overflow-hidden rounded-lg">
+                  <a
+                    href="https://www.flickr.com/photos/201201433@N06/with/54958657950"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <img
+                      src={tshirtImages[currentTshirtSlide]}
+                      alt={`Camiseta DESPERTA - Modelo ${currentTshirtSlide + 1}`}
+                      className="w-full h-auto object-cover shadow-lg"
+                    />
+                  </a>
+                </div>
+                <button
+                  onClick={() => scrollTshirts('left')}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-[#8e5013] text-white p-3 rounded-full shadow-lg hover:bg-[#6d4c30] transition-colors"
+                  aria-label="Previous image"
                 >
-                  <img
-                    src="https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/yCIFej5074147.webp"
-                    alt="Camiseta DESPERTA - Modelo 1"
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-                </a>
-                <a
-                  href="https://www.flickr.com/photos/201201433@N06/with/54958657950"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => scrollTshirts('right')}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#8e5013] text-white p-3 rounded-full shadow-lg hover:bg-[#6d4c30] transition-colors"
+                  aria-label="Next image"
                 >
-                  <img
-                    src="https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/nwbHWk5074147.webp"
-                    alt="Camiseta DESPERTA - Modelo 2"
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-                </a>
-                <a
-                  href="https://www.flickr.com/photos/201201433@N06/with/54958657950"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                >
-                  <img
-                    src="https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/KMNNtb5074147.webp"
-                    alt="Camiseta DESPERTA - Modelo 3"
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-                </a>
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+                <div className="flex justify-center gap-2 mt-4">
+                  {tshirtImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentTshirtSlide(index)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        index === currentTshirtSlide ? 'bg-[#8e5013] w-6' : 'bg-[#f5ddb8]'
+                      }`}
+                      aria-label={`Go to image ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <div className="hidden md:grid md:grid-cols-3 gap-6">
+                {tshirtImages.map((image, index) => (
+                  <a
+                    key={index}
+                    href="https://www.flickr.com/photos/201201433@N06/with/54958657950"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  >
+                    <img
+                      src={image}
+                      alt={`Camiseta DESPERTA - Modelo ${index + 1}`}
+                      className="w-full h-auto object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                  </a>
+                ))}
               </div>
             </div>
           )}
