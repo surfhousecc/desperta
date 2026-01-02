@@ -4,15 +4,15 @@ import { useToast } from "../../components/ui/toast";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
-  { src: "https://surfhouse.site/wp-content/uploads/2025/11/gallery1.jpg", alt: "Gallery 1" },
-  { src: "https://surfhouse.site/wp-content/uploads/2025/11/gallery2.jpg", alt: "Gallery 2" },
-  { src: "https://surfhouse.site/wp-content/uploads/2025/11/gallery3.jpg", alt: "Gallery 3" },
+  { src: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/gallery1.jpg", alt: "Gallery 1" },
+  { src: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/gallery2.jpg", alt: "Gallery 2" },
+  { src: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/gallery3.jpg", alt: "Gallery 3" },
 ];
 
 const desktopGalleryImages = [
-  { src: "https://surfhouse.site/wp-content/uploads/2025/11/desktopgallery1.jpg", alt: "Desktop Gallery 1" },
-  { src: "https://surfhouse.site/wp-content/uploads/2025/11/desktopgallery2.jpg", alt: "Desktop Gallery 2" },
-  { src: "https://surfhouse.site/wp-content/uploads/2025/11/desktopgallery3.jpg", alt: "Desktop Gallery 3" },
+  { src: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/desktopgallery1.jpg", alt: "Desktop Gallery 1" },
+  { src: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/desktopgallery2.jpg", alt: "Desktop Gallery 2" },
+  { src: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/desktopgallery3.jpg", alt: "Desktop Gallery 3" },
 ];
 
 
@@ -21,28 +21,28 @@ const donationTiers = [
     name: "Semente",
     amount: "20",
     description: "Um pequeno gesto que faz florescer o novo.",
-    icon: "https://surfhouse.site/wp-content/uploads/2025/11/semente.png",
+    icon: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/semente.png",
     pixCode: "00020126430014BR.GOV.BCB.PIX0121desperta@surfhouse.cc520400005303986540520.005802BR5925SURFHOUSE COMUNIDADE CRIS6013FLORIANOPOLIS62140510DESPERTA206304B67C",
   },
   {
     name: "Raiz",
     amount: "50",
     description: "Apoie o crescimento e fortaleça o movimento.",
-    icon: "https://surfhouse.site/wp-content/uploads/2025/11/raiz.png",
+    icon: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/raiz.png",
     pixCode: "00020126430014BR.GOV.BCB.PIX0121desperta@surfhouse.cc520400005303986540550.005802BR5925SURFHOUSE COMUNIDADE CRIS6013FLORIANOPOLIS62140510DESPERTA50630458F4",
   },
   {
     name: "Crescimento",
     amount: "100",
     description: "Ajude o Desperta a alcançar ainda mais pessoas.",
-    icon: "https://surfhouse.site/wp-content/uploads/2025/11/crescimento.png",
+    icon: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/crescimento.png",
     pixCode: "00020126430014BR.GOV.BCB.PIX0121desperta@surfhouse.cc5204000053039865406100.005802BR5925SURFHOUSE COMUNIDADE CRIS6013FLORIANOPOLIS62150511DESPERTA100630454EC",
   },
   {
     name: "Floresta",
     amount: "200",
     description: "Plante generosidade que se multiplica.",
-    icon: "https://surfhouse.site/wp-content/uploads/2025/11/floresta.png",
+    icon: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/floresta.png",
     pixCode: "00020126430014BR.GOV.BCB.PIX0121desperta@surfhouse.cc5204000053039865406200.005802BR5925SURFHOUSE COMUNIDADE CRIS6013FLORIANOPOLIS62150511DESPERTA20063043861",
   },
 ];
@@ -181,12 +181,12 @@ export const Frame = (): JSX.Element => {
         <img
           className="w-full h-auto object-cover md:hidden"
           alt="Desperta - Um Encontro com Deus ao Nascer do Sol"
-          src="https://surfhouse.site/wp-content/uploads/2025/11/bannermobile.jpg"
+          src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/bannermobile.jpg"
         />
         <img
           className="hidden md:block w-full h-auto object-cover"
           alt="Desperta - Um Encontro com Deus ao Nascer do Sol"
-          src="https://surfhouse.site/wp-content/uploads/2025/11/bannerdesktop2.png"
+          src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/bannerdesktop2.png"
         />
       </header>
 
@@ -254,9 +254,9 @@ export const Frame = (): JSX.Element => {
                   className="w-full aspect-[9/16] max-h-[600px] object-cover"
                   controls
                   preload="none"
-                  poster="https://surfhouse.site/wp-content/uploads/2025/11/lazyload.png"
+                  poster="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/lazyload.png"
                 >
-                  <source src="https://surfhouse.site/wp-content/uploads/2025/11/Despertaold.mp4" type="video/mp4" />
+                  <source src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/Despertaold.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -292,84 +292,84 @@ export const Frame = (): JSX.Element => {
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 1"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo1.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo1.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 2"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo2.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo2.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 3"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo3.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo3.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 4"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo4.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo4.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 5"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo5.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo5.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 6"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo6.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo6.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 7"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo7.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo7.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 8"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo8.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo8.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 9"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo9.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo9.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 10"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo10.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo10.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 11"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo11.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo11.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 12"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo12.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo12.jpg"
                 />
               </div>
             </div>
@@ -396,84 +396,84 @@ export const Frame = (): JSX.Element => {
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 1"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo1.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo1.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 2"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo2.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo2.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 3"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo3.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo3.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 4"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo4.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo4.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 5"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo5.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo5.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 6"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo6.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo6.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 7"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo7.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo7.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 8"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo8.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo8.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 9"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo9.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo9.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 10"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo10.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo10.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 11"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo11.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo11.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 12"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo12.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo12.jpg"
                   />
                 </div>
               </div>
@@ -800,12 +800,12 @@ export const Frame = (): JSX.Element => {
           <img
             className="w-full h-auto md:hidden"
             alt="SurfHouse Comunidade Cristã - ©2025 Todos os direitos reservados"
-            src="https://surfhouse.site/wp-content/uploads/2025/11/bottom_mobile.png"
+            src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/bottom_mobile.png"
           />
           <img
             className="hidden md:block w-full h-auto"
             alt="SurfHouse Comunidade Cristã - ©2025 Todos os direitos reservados"
-            src="https://surfhouse.site/wp-content/uploads/2025/11/bottom_desktop.png"
+            src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/bottom_desktop.png"
           />
         </div>
       </footer>
