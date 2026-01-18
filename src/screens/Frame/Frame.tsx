@@ -195,7 +195,7 @@ export const Frame = (): JSX.Element => {
           <div className="text-center mb-8 md:hidden">
             <div className="[font-family:'Raleway',Helvetica] font-medium text-[#6d4c30] mb-1">
               <span className="text-4xl">Bem-vindo(a)</span>
-              <span className="text-3xl">ao Desperta</span>
+              <span className="text-3xl"> ao Desperta</span>
             </div>
             <div className="[font-family:'Raleway',Helvetica] font-small text-[#6d4c30] text-2xl">
               PRAIA DO CAMPECHE
@@ -207,9 +207,9 @@ export const Frame = (): JSX.Element => {
               <div className="hidden md:block text-left mb-6">
                 <div className="[font-family:'Raleway',Helvetica] font-medium text-[#6d4c30] mb-2">
                   <span className="text-6xl">Bem-vindo(a)</span>
-                  <span className="text-5xl">ao Desperta</span>
+                  <span className="text-5xl"> ao Desperta</span>
                 </div>
-                <div className="[font-family:'Raleway',Helvetica] font-small text-[#6d4c30] text-5xl">
+                <div className="[font-family:'Raleway',Helvetica] font-small text-[#6d4c30] text-3xl">
                   PRAIA DO CAMPECHE
                 </div>
               </div>
