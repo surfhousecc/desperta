@@ -206,8 +206,8 @@ export const Frame = (): JSX.Element => {
             <div className="space-y-3 md:space-y-4 [font-family:'Raleway',Helvetica] text-[#513b2d] text-sm md:text-xl leading-relaxed text-left mb-8 md:mb-0 px-2">
               <div className="hidden md:block text-left mb-6">
                 <div className="[font-family:'Raleway',Helvetica] font-medium text-[#6d4c30] mb-2">
-                  <span className="text-6xl">22</span>
-                  <span className="text-5xl"> NOV . 4h30</span>
+                  <span className="text-6xl">Bem-vindo(a)</span>
+                  <span className="text-5xl">ao Desperta</span>
                 </div>
                 <div className="[font-family:'Raleway',Helvetica] font-medium text-[#6d4c30] text-5xl">
                   Praia do Campeche
