@@ -4,15 +4,15 @@ import { useToast } from "../../components/ui/toast";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
-  { src: "https://surfhouse.site/wp-content/uploads/2025/11/gallery1.jpg", alt: "Gallery 1" },
-  { src: "https://surfhouse.site/wp-content/uploads/2025/11/gallery2.jpg", alt: "Gallery 2" },
-  { src: "https://surfhouse.site/wp-content/uploads/2025/11/gallery3.jpg", alt: "Gallery 3" },
+  { src: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/gallery1.jpg", alt: "Gallery 1" },
+  { src: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/gallery2.jpg", alt: "Gallery 2" },
+  { src: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/gallery3.jpg", alt: "Gallery 3" },
 ];
 
 const desktopGalleryImages = [
-  { src: "https://surfhouse.site/wp-content/uploads/2025/11/desktopgallery1.jpg", alt: "Desktop Gallery 1" },
-  { src: "https://surfhouse.site/wp-content/uploads/2025/11/desktopgallery2.jpg", alt: "Desktop Gallery 2" },
-  { src: "https://surfhouse.site/wp-content/uploads/2025/11/desktopgallery3.jpg", alt: "Desktop Gallery 3" },
+  { src: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/desktopgallery1.jpg", alt: "Desktop Gallery 1" },
+  { src: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/desktopgallery2.jpg", alt: "Desktop Gallery 2" },
+  { src: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/desktopgallery3.jpg", alt: "Desktop Gallery 3" },
 ];
 
 
@@ -21,28 +21,28 @@ const donationTiers = [
     name: "Semente",
     amount: "20",
     description: "Um pequeno gesto que faz florescer o novo.",
-    icon: "https://surfhouse.site/wp-content/uploads/2025/11/semente.png",
+    icon: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/semente.png",
     pixCode: "00020126430014BR.GOV.BCB.PIX0121desperta@surfhouse.cc520400005303986540520.005802BR5925SURFHOUSE COMUNIDADE CRIS6013FLORIANOPOLIS62140510DESPERTA206304B67C",
   },
   {
     name: "Raiz",
     amount: "50",
     description: "Apoie o crescimento e fortaleça o movimento.",
-    icon: "https://surfhouse.site/wp-content/uploads/2025/11/raiz.png",
+    icon: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/raiz.png",
     pixCode: "00020126430014BR.GOV.BCB.PIX0121desperta@surfhouse.cc520400005303986540550.005802BR5925SURFHOUSE COMUNIDADE CRIS6013FLORIANOPOLIS62140510DESPERTA50630458F4",
   },
   {
     name: "Crescimento",
     amount: "100",
     description: "Ajude o Desperta a alcançar ainda mais pessoas.",
-    icon: "https://surfhouse.site/wp-content/uploads/2025/11/crescimento.png",
+    icon: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/crescimento.png",
     pixCode: "00020126430014BR.GOV.BCB.PIX0121desperta@surfhouse.cc5204000053039865406100.005802BR5925SURFHOUSE COMUNIDADE CRIS6013FLORIANOPOLIS62150511DESPERTA100630454EC",
   },
   {
     name: "Floresta",
     amount: "200",
     description: "Plante generosidade que se multiplica.",
-    icon: "https://surfhouse.site/wp-content/uploads/2025/11/floresta.png",
+    icon: "https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/floresta.png",
     pixCode: "00020126430014BR.GOV.BCB.PIX0121desperta@surfhouse.cc5204000053039865406200.005802BR5925SURFHOUSE COMUNIDADE CRIS6013FLORIANOPOLIS62150511DESPERTA20063043861",
   },
 ];
@@ -51,6 +51,22 @@ export const Frame = (): JSX.Element => {
   const { showToast } = useToast();
   const testimonialScrollRef = useRef<HTMLDivElement>(null);
   const desktopTestimonialScrollRef = useRef<HTMLDivElement>(null);
+  const [showTshirtGallery, setShowTshirtGallery] = React.useState(false);
+  const [currentTshirtSlide, setCurrentTshirtSlide] = React.useState(0);
+
+  const tshirtImages = [
+    "https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/yCIFej5074147.webp",
+    "https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/nwbHWk5074147.webp",
+    "https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/KMNNtb5074147.webp"
+  ];
+
+  const scrollTshirts = (direction: 'left' | 'right') => {
+    if (direction === 'left') {
+      setCurrentTshirtSlide(prev => prev === 0 ? tshirtImages.length - 1 : prev - 1);
+    } else {
+      setCurrentTshirtSlide(prev => prev === tshirtImages.length - 1 ? 0 : prev + 1);
+    }
+  };
 
   const scrollTestimonials = (direction: 'left' | 'right') => {
     if (testimonialScrollRef.current) {
@@ -73,9 +89,13 @@ export const Frame = (): JSX.Element => {
     }
   };
 
-  const handleDonationClick = (pixCode: string) => {
+  const handleDonationClick = (pixCode: string, amount: string) => {
     navigator.clipboard.writeText(pixCode);
     showToast("Código PIX copiado. Acesse seu banco para efetivar o pagamento.");
+
+    if (amount === "100" || amount === "200") {
+      setShowTshirtGallery(true);
+    }
   };
 
   const handleCustomAmountClick = () => {
@@ -161,12 +181,12 @@ export const Frame = (): JSX.Element => {
         <img
           className="w-full h-auto object-cover md:hidden"
           alt="Desperta - Um Encontro com Deus ao Nascer do Sol"
-          src="https://surfhouse.site/wp-content/uploads/2025/11/bannermobile.jpg"
+          src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/bannermobile.jpg"
         />
         <img
           className="hidden md:block w-full h-auto object-cover"
           alt="Desperta - Um Encontro com Deus ao Nascer do Sol"
-          src="https://surfhouse.site/wp-content/uploads/2025/11/bannerdesktop2.png"
+          src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/bannerdesktop2.png"
         />
       </header>
 
@@ -234,9 +254,9 @@ export const Frame = (): JSX.Element => {
                   className="w-full aspect-[9/16] max-h-[600px] object-cover"
                   controls
                   preload="none"
-                  poster="https://surfhouse.site/wp-content/uploads/2025/11/lazyload.png"
+                  poster="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/lazyload.png"
                 >
-                  <source src="https://surfhouse.site/wp-content/uploads/2025/11/Despertaold.mp4" type="video/mp4" />
+                  <source src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/Despertaold.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -272,84 +292,84 @@ export const Frame = (): JSX.Element => {
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 1"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo1.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo1.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 2"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo2.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo2.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 3"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo3.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo3.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 4"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo4.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo4.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 5"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo5.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo5.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 6"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo6.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo6.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 7"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo7.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo7.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 8"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo8.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo8.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 9"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo9.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo9.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 10"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo10.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo10.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 11"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo11.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo11.jpg"
                 />
               </div>
               <div className="flex-shrink-0 w-full snap-center">
                 <img
                   className="w-full h-auto object-contain"
                   alt="Testimonial 12"
-                  src="https://surfhouse.site/wp-content/uploads/2025/11/depo12.jpg"
+                  src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo12.jpg"
                 />
               </div>
             </div>
@@ -376,84 +396,84 @@ export const Frame = (): JSX.Element => {
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 1"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo1.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo1.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 2"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo2.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo2.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 3"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo3.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo3.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 4"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo4.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo4.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 5"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo5.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo5.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 6"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo6.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo6.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 7"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo7.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo7.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 8"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo8.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo8.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 9"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo9.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo9.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 10"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo10.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo10.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 11"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo11.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo11.jpg"
                   />
                 </div>
                 <div className="flex-shrink-0 w-[calc(33.333%-1rem)] snap-start rounded-lg overflow-hidden shadow-lg">
                   <img
                     className="w-full h-auto object-contain"
                     alt="Testimonial 12"
-                    src="https://surfhouse.site/wp-content/uploads/2025/11/depo12.jpg"
+                    src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/depo12.jpg"
                   />
                 </div>
               </div>
@@ -538,6 +558,34 @@ export const Frame = (): JSX.Element => {
             Semeie no Desperta
           </h2>
 
+          <div className="max-w-4xl mx-auto mb-8 px-4">
+            <div className="bg-[#f5ddb8] rounded-lg p-4 md:p-6 shadow-lg">
+              <div className="flex justify-between items-center mb-3">
+                <div className="text-left">
+                  <p className="[font-family:'Raleway',Helvetica] text-[#513b2d] text-xs md:text-sm mb-1">Arrecadado</p>
+                  <p className="[font-family:'Raleway',Helvetica] font-bold text-[#6d4c30] text-lg md:text-2xl">R$ 21.488,57</p>
+                </div>
+                <div className="text-right">
+                  <p className="[font-family:'Raleway',Helvetica] text-[#513b2d] text-xs md:text-sm mb-1">Meta até 31/12</p>
+                  <p className="[font-family:'Raleway',Helvetica] font-bold text-[#6d4c30] text-lg md:text-2xl">R$ 42.000,00</p>
+                </div>
+              </div>
+              <div className="relative w-full h-4 bg-white rounded-full overflow-hidden shadow-inner">
+                <div
+                  className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#8e5013] to-[#6d4c30] rounded-full transition-all duration-1000 ease-out"
+                  style={{ width: '51.16%' }}
+                >
+                  <div className="absolute inset-0 bg-white opacity-20 animate-pulse"></div>
+                </div>
+              </div>
+              <div className="mt-2 text-center">
+                <p className="[font-family:'Raleway',Helvetica] text-[#8e5013] text-xs md:text-sm font-medium">
+                  51% alcançado - Faltam R$ 20.511,43 para a meta
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div className="max-w-3xl mx-auto mb-8 md:mb-12 space-y-4 [font-family:'Raleway',Helvetica] text-[#513b2d] text-sm md:text-2xl text-left px-4">
             <p>O Desperta acontece de forma gratuita e segue crescendo graças à contribuição voluntária de quem faz parte desse movimento.</p>
             <p>Sua contribuição ajuda a proporcionar a melhor experiência possível a todos que participam.</p>
@@ -546,10 +594,15 @@ export const Frame = (): JSX.Element => {
 
           <div className="grid grid-cols-2 gap-6 mb-4 md:hidden">
             {donationTiers.map((tier, index) => (
-              <div key={index}>
+              <div key={index} className="relative">
+                {(tier.amount === "100" || tier.amount === "200") && (
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-10 bg-[#8e5013] text-white px-3 py-1 rounded-full text-xs [font-family:'Raleway',Helvetica] font-medium whitespace-nowrap shadow-lg">
+                    🎁 {tier.amount === "100" ? "1 camiseta grátis" : "2 camisetas grátis"}
+                  </div>
+                )}
                 <Card
                   className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors cursor-pointer shadow-lg"
-                  onClick={() => handleDonationClick(tier.pixCode)}
+                  onClick={() => handleDonationClick(tier.pixCode, tier.amount)}
                 >
                   <CardContent className="p-4 text-center">
                     <img
@@ -575,10 +628,15 @@ export const Frame = (): JSX.Element => {
 
           <div className="hidden md:grid md:grid-cols-5 md:gap-8 max-w-7xl mx-auto mb-8">
             {donationTiers.map((tier, index) => (
-              <div key={index}>
+              <div key={index} className="relative">
+                {(tier.amount === "100" || tier.amount === "200") && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 bg-[#8e5013] text-white px-4 py-2 rounded-full text-sm [font-family:'Raleway',Helvetica] font-medium whitespace-nowrap shadow-lg">
+                    🎁 {tier.amount === "100" ? "1 camiseta grátis" : "2 camisetas grátis"}
+                  </div>
+                )}
                 <Card
                   className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors cursor-pointer shadow-lg"
-                  onClick={() => handleDonationClick(tier.pixCode)}
+                  onClick={() => handleDonationClick(tier.pixCode, tier.amount)}
                 >
                   <CardContent className="p-6 text-center">
                     <img
@@ -655,6 +713,85 @@ export const Frame = (): JSX.Element => {
               <span className="text-3xl">💛</span>
             </div>
           </div>
+
+          {showTshirtGallery && (
+            <div className="max-w-6xl mx-auto mt-12 px-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className="text-center mb-6">
+                <h3 className="[font-family:'Raleway',Helvetica] font-medium text-[#6d4c30] text-2xl md:text-4xl mb-2">
+                  🎁 Suas camisetas te esperam!
+                </h3>
+                <p className="[font-family:'Raleway',Helvetica] text-[#8e5013] text-sm md:text-lg">
+                  Clique nas imagens para ver mais modelos disponíveis
+                </p>
+              </div>
+
+              <div className="md:hidden relative">
+                <div className="relative overflow-hidden rounded-lg">
+                  <a
+                    href="https://www.flickr.com/photos/201201433@N06/with/54958657950"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <img
+                      src={tshirtImages[currentTshirtSlide]}
+                      alt={`Camiseta DESPERTA - Modelo ${currentTshirtSlide + 1}`}
+                      className="w-full h-auto object-cover shadow-lg"
+                    />
+                  </a>
+                </div>
+                <button
+                  onClick={() => scrollTshirts('left')}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-[#8e5013] text-white p-3 rounded-full shadow-lg hover:bg-[#6d4c30] transition-colors"
+                  aria-label="Previous image"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => scrollTshirts('right')}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#8e5013] text-white p-3 rounded-full shadow-lg hover:bg-[#6d4c30] transition-colors"
+                  aria-label="Next image"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+                <div className="flex justify-center gap-2 mt-4">
+                  {tshirtImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentTshirtSlide(index)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        index === currentTshirtSlide ? 'bg-[#8e5013] w-6' : 'bg-[#f5ddb8]'
+                      }`}
+                      aria-label={`Go to image ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <div className="hidden md:grid md:grid-cols-3 gap-6">
+                {tshirtImages.map((image, index) => (
+                  <a
+                    key={index}
+                    href="https://www.flickr.com/photos/201201433@N06/with/54958657950"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  >
+                    <img
+                      src={image}
+                      alt={`Camiseta DESPERTA - Modelo ${index + 1}`}
+                      className="w-full h-auto object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -663,12 +800,12 @@ export const Frame = (): JSX.Element => {
           <img
             className="w-full h-auto md:hidden"
             alt="SurfHouse Comunidade Cristã - ©2025 Todos os direitos reservados"
-            src="https://surfhouse.site/wp-content/uploads/2025/11/bottom_mobile.png"
+            src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/bottom_mobile.png"
           />
           <img
             className="hidden md:block w-full h-auto"
             alt="SurfHouse Comunidade Cristã - ©2025 Todos os direitos reservados"
-            src="https://surfhouse.site/wp-content/uploads/2025/11/bottom_desktop.png"
+            src="https://mistyrose-partridge-658178.hostingersite.com/wp-content/uploads/2025/11/bottom_desktop.png"
           />
         </div>
       </footer>
