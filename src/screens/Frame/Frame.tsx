@@ -106,9 +106,9 @@ export const Frame = (): JSX.Element => {
   const handleSaveToCalendar = () => {
     const event = {
       title: "Acordar cedo para ir ao DESPERTA ☀️",
-      start: new Date("2025-11-22T04:30:00"),
-      end: new Date("2025-11-22T07:30:00"),
-      location: "Av. Campeche 720, Florianópolis SC, Brazil",
+      start: new Date("2026-03-21T04:30:00"),
+      end: new Date("2026-03-21T07:30:00"),
+      location: "Av. Pequeno Príncipe 3348, Florianópolis SC, Brazil",
       details: "Um Encontro com Deus ao Nascer do Sol"
     };
 
@@ -516,8 +516,8 @@ export const Frame = (): JSX.Element => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-6 md:mb-8">
             <h2 className="[font-family:'Raleway',Helvetica] font-normal text-[#6d4c30] text-base md:text-4xl mb-4 px-4">
-              Av. Campeche, 720<br />
-              (deck de acesso a praia do Vizu)
+              Av. Pequeno Príncipe, 3348<br />
+              (Acesso Principal)
             </h2>
             <div className="md:grid md:grid-cols-2 md:gap-6 md:items-start">
               <img
