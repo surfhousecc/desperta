@@ -566,7 +566,7 @@ export const Frame = (): JSX.Element => {
                   <p className="[font-family:'Raleway',Helvetica] font-bold text-[#6d4c30] text-lg md:text-2xl">R$ 21.488,57</p>
                 </div>
                 <div className="text-right">
-                  <p className="[font-family:'Raleway',Helvetica] text-[#513b2d] text-xs md:text-sm mb-1">Meta até 31/12</p>
+                  <p className="[font-family:'Raleway',Helvetica] text-[#513b2d] text-xs md:text-sm mb-1">Meta até 21/03</p>
                   <p className="[font-family:'Raleway',Helvetica] font-bold text-[#6d4c30] text-lg md:text-2xl">R$ 42.000,00</p>
                 </div>
               </div>
