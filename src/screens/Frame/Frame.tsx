@@ -198,7 +198,7 @@ export const Frame = (): JSX.Element => {
               <span className="text-3xl"> ao Desperta</span>
             </div>
             <div className="[font-family:'Raleway',Helvetica] font-small text-[#6d4c30] text-2xl">
-              PRAIA DO CAMPECHE
+              21 MAR 2026 - PRAIA DO CAMPECHE
             </div>
           </div>
 
@@ -210,7 +210,7 @@ export const Frame = (): JSX.Element => {
                   <span className="text-5xl"> ao Desperta</span>
                 </div>
                 <div className="[font-family:'Raleway',Helvetica] font-small text-[#6d4c30] text-3xl">
-                  PRAIA DO CAMPECHE
+                 21 MAR 2026 - PRAIA DO CAMPECHE
                 </div>
               </div>
               <p>
