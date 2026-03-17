@@ -518,16 +518,6 @@ export const Frame = (): JSX.Element => {
                 />
               </div>
             </div>
-            <div className="max-w-sm mx-auto mt-6">
-              <a
-                href="http://evt.to/ehedauuhw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full bg-[#6d4c30] hover:bg-[#8e5013] text-white py-3 px-6 rounded-lg transition-colors [font-family:'Raleway',Helvetica] font-medium text-base md:text-lg text-center"
-              >
-                📅 Salvar na agenda
-              </a>
-            </div>
           </div>
         </div>
       </section>
