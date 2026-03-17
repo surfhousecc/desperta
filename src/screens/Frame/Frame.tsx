@@ -523,18 +523,18 @@ export const Frame = (): JSX.Element => {
               <img
                 className="w-full h-auto rounded-lg mb-4 md:mb-0"
                 alt="Location map illustration"
-                src="/map.jpg"
+                src="/Captura_de_tela_2026-03-10_100355.png"
               />
               <div className="w-full h-[300px] md:h-full md:min-h-[450px] rounded-lg overflow-hidden shadow-lg">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3537.4!2d-48.482173!3d-27.681969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDQwJzU1LjEiUyA0OMKwMjgnNTUuOCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3537.387!2d-48.4821725!3d-27.5768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95283e1c8e3e3e3d%3A0x0!2sAv.%20Pequeno%20Pr%C3%ADncipe%2C%203348%20-%20Florianópolis%2C%20SC!5e0!3m2!1spt-BR!2sbr!4v1234567890"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Google Maps - Praia do Campeche"
+                  title="Google Maps - Av. Pequeno Príncipe, 3348"
                 />
               </div>
             </div>
