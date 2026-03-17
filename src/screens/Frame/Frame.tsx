@@ -51,22 +51,6 @@ export const Frame = (): JSX.Element => {
   const { showToast } = useToast();
   const testimonialScrollRef = useRef<HTMLDivElement>(null);
   const desktopTestimonialScrollRef = useRef<HTMLDivElement>(null);
-  const [showTshirtGallery, setShowTshirtGallery] = React.useState(false);
-  const [currentTshirtSlide, setCurrentTshirtSlide] = React.useState(0);
-
-  const tshirtImages = [
-    "https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/yCIFej5074147.webp",
-    "https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/nwbHWk5074147.webp",
-    "https://media.atomicatpages.net/u/yJF5BjzsAieaSeMMensTxlQujzj2/Pictures/KMNNtb5074147.webp"
-  ];
-
-  const scrollTshirts = (direction: 'left' | 'right') => {
-    if (direction === 'left') {
-      setCurrentTshirtSlide(prev => prev === 0 ? tshirtImages.length - 1 : prev - 1);
-    } else {
-      setCurrentTshirtSlide(prev => prev === tshirtImages.length - 1 ? 0 : prev + 1);
-    }
-  };
 
   const scrollTestimonials = (direction: 'left' | 'right') => {
     if (testimonialScrollRef.current) {
@@ -89,13 +73,9 @@ export const Frame = (): JSX.Element => {
     }
   };
 
-  const handleDonationClick = (pixCode: string, amount: string) => {
+  const handleDonationClick = (pixCode: string) => {
     navigator.clipboard.writeText(pixCode);
     showToast("Código PIX copiado. Acesse seu banco para efetivar o pagamento.");
-
-    if (amount === "100" || amount === "200") {
-      setShowTshirtGallery(true);
-    }
   };
 
   const handleCustomAmountClick = () => {
@@ -595,14 +575,9 @@ export const Frame = (): JSX.Element => {
           <div className="grid grid-cols-2 gap-6 mb-4 md:hidden">
             {donationTiers.map((tier, index) => (
               <div key={index} className="relative">
-                {(tier.amount === "100" || tier.amount === "200") && (
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-10 bg-[#8e5013] text-white px-3 py-1 rounded-full text-xs [font-family:'Raleway',Helvetica] font-medium whitespace-nowrap shadow-lg">
-                    🎁 {tier.amount === "100" ? "1 camiseta grátis" : "2 camisetas grátis"}
-                  </div>
-                )}
                 <Card
                   className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors cursor-pointer shadow-lg"
-                  onClick={() => handleDonationClick(tier.pixCode, tier.amount)}
+                  onClick={() => handleDonationClick(tier.pixCode)}
                 >
                   <CardContent className="p-4 text-center">
                     <img
@@ -629,14 +604,9 @@ export const Frame = (): JSX.Element => {
           <div className="hidden md:grid md:grid-cols-5 md:gap-8 max-w-7xl mx-auto mb-8">
             {donationTiers.map((tier, index) => (
               <div key={index} className="relative">
-                {(tier.amount === "100" || tier.amount === "200") && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 bg-[#8e5013] text-white px-4 py-2 rounded-full text-sm [font-family:'Raleway',Helvetica] font-medium whitespace-nowrap shadow-lg">
-                    🎁 {tier.amount === "100" ? "1 camiseta grátis" : "2 camisetas grátis"}
-                  </div>
-                )}
                 <Card
                   className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors cursor-pointer shadow-lg"
-                  onClick={() => handleDonationClick(tier.pixCode, tier.amount)}
+                  onClick={() => handleDonationClick(tier.pixCode)}
                 >
                   <CardContent className="p-6 text-center">
                     <img
@@ -714,84 +684,94 @@ export const Frame = (): JSX.Element => {
             </div>
           </div>
 
-          {showTshirtGallery && (
-            <div className="max-w-6xl mx-auto mt-12 px-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <div className="text-center mb-6">
-                <h3 className="[font-family:'Raleway',Helvetica] font-medium text-[#6d4c30] text-2xl md:text-4xl mb-2">
-                  🎁 Suas camisetas te esperam!
-                </h3>
-                <p className="[font-family:'Raleway',Helvetica] text-[#8e5013] text-sm md:text-lg">
-                  Clique nas imagens para ver mais modelos disponíveis
-                </p>
-              </div>
-
-              <div className="md:hidden relative">
-                <div className="relative overflow-hidden rounded-lg">
-                  <a
-                    href="https://www.flickr.com/photos/201201433@N06/with/54958657950"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <img
-                      src={tshirtImages[currentTshirtSlide]}
-                      alt={`Camiseta DESPERTA - Modelo ${currentTshirtSlide + 1}`}
-                      className="w-full h-auto object-cover shadow-lg"
-                    />
-                  </a>
-                </div>
-                <button
-                  onClick={() => scrollTshirts('left')}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-[#8e5013] text-white p-3 rounded-full shadow-lg hover:bg-[#6d4c30] transition-colors"
-                  aria-label="Previous image"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                <button
-                  onClick={() => scrollTshirts('right')}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#8e5013] text-white p-3 rounded-full shadow-lg hover:bg-[#6d4c30] transition-colors"
-                  aria-label="Next image"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-                <div className="flex justify-center gap-2 mt-4">
-                  {tshirtImages.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentTshirtSlide(index)}
-                      className={`w-2 h-2 rounded-full transition-all ${
-                        index === currentTshirtSlide ? 'bg-[#8e5013] w-6' : 'bg-[#f5ddb8]'
-                      }`}
-                      aria-label={`Go to image ${index + 1}`}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              <div className="hidden md:grid md:grid-cols-3 gap-6">
-                {tshirtImages.map((image, index) => (
-                  <a
-                    key={index}
-                    href="https://www.flickr.com/photos/201201433@N06/with/54958657950"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                  >
-                    <img
-                      src={image}
-                      alt={`Camiseta DESPERTA - Modelo ${index + 1}`}
-                      className="w-full h-auto object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-                  </a>
-                ))}
-              </div>
+          <div className="max-w-4xl mx-auto mt-12 px-4">
+            <div className="text-center mb-8">
+              <h3 className="[font-family:'Raleway',Helvetica] font-medium text-[#6d4c30] text-2xl md:text-4xl mb-2">
+                Pagar com Cartão de Crédito
+              </h3>
+              <p className="[font-family:'Raleway',Helvetica] text-[#8e5013] text-sm md:text-lg">
+                Escolha uma das opções abaixo para contribuir com segurança
+              </p>
             </div>
-          )}
+
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+              <a
+                href="https://surfhouse.mycartpanda.com/checkout/208756264:1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Card className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors shadow-lg h-full">
+                  <CardContent className="p-4 md:p-6 text-center flex flex-col justify-center h-full">
+                    <h4 className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] text-lg md:text-xl mb-2">
+                      Semente
+                    </h4>
+                    <div className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] mb-2">
+                      <span className="text-base">R$ </span>
+                      <span className="text-2xl md:text-3xl">20</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+
+              <a
+                href="https://surfhouse.mycartpanda.com/checkout/208756261:1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Card className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors shadow-lg h-full">
+                  <CardContent className="p-4 md:p-6 text-center flex flex-col justify-center h-full">
+                    <h4 className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] text-lg md:text-xl mb-2">
+                      Raiz
+                    </h4>
+                    <div className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] mb-2">
+                      <span className="text-base">R$ </span>
+                      <span className="text-2xl md:text-3xl">50</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+
+              <a
+                href="https://surfhouse.mycartpanda.com/checkout/208756262:1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Card className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors shadow-lg h-full">
+                  <CardContent className="p-4 md:p-6 text-center flex flex-col justify-center h-full">
+                    <h4 className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] text-lg md:text-xl mb-2">
+                      Floresta
+                    </h4>
+                    <div className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] mb-2">
+                      <span className="text-base">R$ </span>
+                      <span className="text-2xl md:text-3xl">100</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+
+              <a
+                href="https://surfhouse.mycartpanda.com/checkout/208756263:1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Card className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors shadow-lg h-full">
+                  <CardContent className="p-4 md:p-6 text-center flex flex-col justify-center h-full">
+                    <h4 className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] text-lg md:text-xl mb-2">
+                      Crescimento
+                    </h4>
+                    <div className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] mb-2">
+                      <span className="text-base">R$ </span>
+                      <span className="text-2xl md:text-3xl">200</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
