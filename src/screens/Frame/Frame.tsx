@@ -569,7 +569,7 @@ export const Frame = (): JSX.Element => {
           <div className="max-w-3xl mx-auto mb-8 md:mb-12 space-y-4 [font-family:'Raleway',Helvetica] text-[#513b2d] text-sm md:text-2xl text-left px-4">
             <p>O Desperta acontece de forma gratuita e segue crescendo graças à contribuição voluntária de quem faz parte desse movimento.</p>
             <p>Sua contribuição ajuda a proporcionar a melhor experiência possível a todos que participam.</p>
-            <p>Escolha um dos valores abaixo e contribua com alegria.</p>
+            <p>Toque nos botões abaixo para copiar o código <b>Copia e Cola do PIX:</b></p>
           </div>
 
           <div className="grid grid-cols-2 gap-6 mb-4 md:hidden">
