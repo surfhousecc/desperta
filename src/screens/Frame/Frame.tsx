@@ -243,6 +243,94 @@ export const Frame = (): JSX.Element => {
             </div>
           </div>
 
+          <div className="max-w-4xl mx-auto mt-12 px-4">
+            <div className="text-center mb-8">
+              <h3 className="[font-family:'Raleway',Helvetica] font-medium text-[#6d4c30] text-2xl md:text-4xl mb-2">
+                Pagar com Cartão de Crédito
+              </h3>
+              <p className="[font-family:'Raleway',Helvetica] text-[#8e5013] text-sm md:text-lg">
+                Escolha uma das opções abaixo para contribuir com segurança
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+              <a
+                href="https://surfhouse.mycartpanda.com/checkout/208756264:1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Card className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors shadow-lg h-full">
+                  <CardContent className="p-4 md:p-6 text-center flex flex-col justify-center h-full">
+                    <h4 className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] text-lg md:text-xl mb-2">
+                      Semente
+                    </h4>
+                    <div className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] mb-2">
+                      <span className="text-base">R$ </span>
+                      <span className="text-2xl md:text-3xl">20</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+
+              <a
+                href="https://surfhouse.mycartpanda.com/checkout/208756261:1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Card className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors shadow-lg h-full">
+                  <CardContent className="p-4 md:p-6 text-center flex flex-col justify-center h-full">
+                    <h4 className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] text-lg md:text-xl mb-2">
+                      Raiz
+                    </h4>
+                    <div className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] mb-2">
+                      <span className="text-base">R$ </span>
+                      <span className="text-2xl md:text-3xl">50</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+
+              <a
+                href="https://surfhouse.mycartpanda.com/checkout/208756262:1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Card className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors shadow-lg h-full">
+                  <CardContent className="p-4 md:p-6 text-center flex flex-col justify-center h-full">
+                    <h4 className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] text-lg md:text-xl mb-2">
+                      Floresta
+                    </h4>
+                    <div className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] mb-2">
+                      <span className="text-base">R$ </span>
+                      <span className="text-2xl md:text-3xl">100</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+
+              <a
+                href="https://surfhouse.mycartpanda.com/checkout/208756263:1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Card className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors shadow-lg h-full">
+                  <CardContent className="p-4 md:p-6 text-center flex flex-col justify-center h-full">
+                    <h4 className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] text-lg md:text-xl mb-2">
+                      Crescimento
+                    </h4>
+                    <div className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] mb-2">
+                      <span className="text-base">R$ </span>
+                      <span className="text-2xl md:text-3xl">200</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -671,95 +759,6 @@ export const Frame = (): JSX.Element => {
               <span className="text-3xl">💛</span>
               <span className="text-3xl">💛</span>
               <span className="text-3xl">💛</span>
-            </div>
-          </div>
-
-          <div className="max-w-4xl mx-auto mt-12 px-4">
-            <div className="text-center mb-8">
-              <h3 className="[font-family:'Raleway',Helvetica] font-medium text-[#6d4c30] text-2xl md:text-4xl mb-2">
-                Pagar com Cartão de Crédito
-              </h3>
-              <p className="[font-family:'Raleway',Helvetica] text-[#8e5013] text-sm md:text-lg">
-                Escolha uma das opções abaixo para contribuir com segurança
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
-              <a
-                href="https://surfhouse.mycartpanda.com/checkout/208756264:1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <Card className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors shadow-lg h-full">
-                  <CardContent className="p-4 md:p-6 text-center flex flex-col justify-center h-full">
-                    <h4 className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] text-lg md:text-xl mb-2">
-                      Semente
-                    </h4>
-                    <div className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] mb-2">
-                      <span className="text-base">R$ </span>
-                      <span className="text-2xl md:text-3xl">20</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </a>
-
-              <a
-                href="https://surfhouse.mycartpanda.com/checkout/208756261:1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <Card className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors shadow-lg h-full">
-                  <CardContent className="p-4 md:p-6 text-center flex flex-col justify-center h-full">
-                    <h4 className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] text-lg md:text-xl mb-2">
-                      Raiz
-                    </h4>
-                    <div className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] mb-2">
-                      <span className="text-base">R$ </span>
-                      <span className="text-2xl md:text-3xl">50</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </a>
-
-              <a
-                href="https://surfhouse.mycartpanda.com/checkout/208756262:1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <Card className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors shadow-lg h-full">
-                  <CardContent className="p-4 md:p-6 text-center flex flex-col justify-center h-full">
-                    <h4 className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] text-lg md:text-xl mb-2">
-                      Floresta
-                    </h4>
-                    <div className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] mb-2">
-                      <span className="text-base">R$ </span>
-                      <span className="text-2xl md:text-3xl">100</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </a>
-
-              <a
-                href="https://surfhouse.mycartpanda.com/checkout/208756263:1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <Card className="border-none bg-[#f5ddb8] hover:bg-[#f5d4a5] transition-colors shadow-lg h-full">
-                  <CardContent className="p-4 md:p-6 text-center flex flex-col justify-center h-full">
-                    <h4 className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] text-lg md:text-xl mb-2">
-                      Crescimento
-                    </h4>
-                    <div className="[font-family:'Raleway',Helvetica] font-medium text-[#8e5013] mb-2">
-                      <span className="text-base">R$ </span>
-                      <span className="text-2xl md:text-3xl">200</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </a>
             </div>
           </div>
         </div>
